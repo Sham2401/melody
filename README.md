@@ -1,2 +1,2 @@
-# melody
-практикум Glo Academy
+# melody практикум Glo Academy
+## Проект выполил Махмутов Шамиль
