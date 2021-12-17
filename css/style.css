@@ -103,7 +103,7 @@ path.current-floor {
   line-height: 44px;
   color: #635854;
 }
-.counter {
+.floor-counter {
   font-family: "Bebas Neue", sans-serif;
   color: #635854;
   font-size: 124px;
@@ -116,4 +116,106 @@ path.current-floor {
   border: none;
   padding: 16px 36px;
   cursor: pointer;
+}
+.modal {
+  position: fixed; /* фиксированная позиция поверх всего сайта */
+  left: 0px; /* прикклеиваем слева */
+  top: 0px; /* приклеиваем вверху */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* полупрозрачное перекрытик фона */
+  display: flex; /* гибкий родительский элемент (поупрозрачная подложка) */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* скрытие диалогового окна до вызова по клику */
+  transform: scale(
+    0
+  ); /* сжимаем диалоговое окно в 0, чтобы его не было видно вообще */
+  transition: opacity 0.2s; /* плавное появление окна */
+}
+.is-open {
+  opacity: 1; /* открытие диалогового окна по клику */
+  transform: scale(1); /* разворачиваем диалоговое окно */
+}
+.modal-dialog {
+  position: relative; /* задаем позицию для кнопки закрытия диалогового окна и самого окна */
+  max-width: 1000px;
+  min-height: 565px;
+  background-color: #fff;
+  flex-grow: 1;
+  display: flex;
+  opacity: 0;
+  transform: translateY(-10%); /* добавляем анимацию - выпадает сверху */
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+.is-open > .modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+.modal-image {
+  background-color: #ebebeb;
+  width: 60%;
+  text-align: center; /* выравнивание по центру */
+  padding: 50px; /* отступ со всех сторон */
+}
+.flats path {
+  /* работа со слоями квартир */
+  opacity: 0; /* скрываем все слои */
+  cursor: pointer;
+}
+.flats path:hover {
+  opacity: 1; /* подсвециваем слой по наведению мышки */
+  cursor: pointer;
+}
+.modal-title {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+.modal-info {
+  width: 40%;
+  padding: 50px 46px;
+}
+.flat-list {
+  padding: 0px; /* убираем отступы */
+  list-style: none; /* убираем точки из списка */
+  margin-top: 55px; /* отступ сверху */
+}
+.flat-item {
+  margin-bottom: 10px;
+}
+.flat-link {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  text-decoration: none;
+}
+.flat-link:hover {
+  color: #3596f5;
+  text-decoration: underline;
+}
+.modal-alert {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  margin-top: 56px;
+}
+.modal-close-button {
+  position: absolute; /* задаем позицию кнопки закрытия модального окна которая ориентируется по modal-dialog */
+  right: 27px;
+  top: 38px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
 }
